@@ -33,30 +33,6 @@ ytrain = pd.read_csv(ytrain_path)
 ytest = pd.read_csv(ytest_path)
 
 
-# Drop the unique identifier
-df.drop(columns=['CustomerID'], inplace=True)
-
-# Encoding the categorical 'Type' column
-label_encoder = LabelEncoder()
-df['TypeofContact'] = label_encoder.fit_transform(df['TypeofContact'])
-df['Occupation'] = label_encoder.fit_transform(df['Occupation'])
-df['Gender'] = label_encoder.fit_transform(df['Gender'])
-df['ProductPitched'] = label_encoder.fit_transform(df['ProductPitched'])
-df['MaritalStatus'] = label_encoder.fit_transform(df['MaritalStatus'])
-df['Designation'] = label_encoder.fit_transform(df['Designation'])
-
-# Define the target column
-
-target_col = 'ProdTaken'
-# Split into X (features) and y (target)
-X = df.drop(columns=[target_col])
-y = df[target_col]
-
-# Perform train-test split
-Xtrain, Xtest, ytrain, ytest = train_test_split(
-    X, y, test_size=0.2, random_state=42
-)
-
 # One-hot encode 'Type' and scale numeric features
 numeric_features = [
     'Age',
