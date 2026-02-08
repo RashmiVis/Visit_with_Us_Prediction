@@ -55,6 +55,7 @@ input_data = pd.DataFrame([{
 
     'TypeofContact': TypeofContact,
     'Occupation': Occupation,
+    'Gender': Gender,
     'ProductPitched': ProductPitched,
     'MaritalStatus': MaritalStatus,
     'Designation': Designation,
